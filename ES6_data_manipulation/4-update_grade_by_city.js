@@ -1,4 +1,4 @@
-export default function updateStudentGradeByCity(students, city, newGrades) {
+function updateStudentGradeByCity(students, city, newGrades) {
   if (!Array.isArray(students)) {
     return [];
   }
@@ -10,7 +10,7 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
 
   const studentsGraded = stCity.map((student) => {
     const gradeFilter = newGrades.filter(
-      (newGrade) => newGrade.studentId === student.id
+      (newGrade) => newGrade.studentId === student.id,
     );
 
     let grade;
@@ -23,9 +23,11 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
 
     return {
       ...student,
-      grade
+      grade,
     };
   });
 
   return studentsGraded;
 }
+
+export default updateStudentGradeByCity;
