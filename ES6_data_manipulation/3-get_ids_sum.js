@@ -1,9 +1,4 @@
-export default function getStudentsByLocation(students, city) {
-  if (!Array.isArray(students)) {
-    return [];
-  }
-
-  const res = students.reduce((tot, num) => tot + num);
-
-  return res;
+export default function getStudentIdsSum(students) {
+  return students.map((studentsObj) => studentsObj.id)
+    .reduce((previous, studentsObj) => previous + studentsObj);
 }
