@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents(file) {
+function countStudents (file) {
   try {
     const f = fs.readFileSync(file);
     const data = f.toString().split('\n').slice(1, -1);
