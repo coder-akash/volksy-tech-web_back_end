@@ -17,7 +17,7 @@ function countStudents(file) {
       const dict = {};
 
       for (let i = 0; i < adata.length; i += 1) {
-        const field = a_data[i].slice(adata[i].lastIndexOf(',') + 1);
+        const field = adata[i].slice(adata[i].lastIndexOf(',') + 1);
         if (field in dict === false) {
           dict[field] = adata.filter((i) => (i.endsWith(field))).map((j) => (j.slice(0, j.indexOf(','))));
         }
