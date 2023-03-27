@@ -1,4 +1,5 @@
 const http = require('http');
+
 const countStudents = require('./3-read_file_async.js');
 const db = process.argv[2];
 
@@ -7,9 +8,10 @@ const port = 1245;
 
 const app = http.createServer(async (req, res) => {
   res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+
   if (req.url === '/') {
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Holberton School!');
+    res.write('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.write('This is the list of our students}');
     try {
@@ -19,6 +21,7 @@ const app = http.createServer(async (req, res) => {
       res.end(error.message);
     }
   }
+  res.statusCode = 404;
   res.end();
 });
 
