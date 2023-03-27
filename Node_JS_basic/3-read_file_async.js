@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents(file) {
+function countStudents (file) {
   return new Promise((resolve, reject) => {
     fs.readFile(file, (err, data) => {
       if (err) {
