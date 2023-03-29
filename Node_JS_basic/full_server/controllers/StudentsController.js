@@ -16,7 +16,7 @@ class StudentsController {
   static getAllStudentsByMajor (request, response, db) {
     const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
-      response.send(500, 'Cannot load the database');
+      response.send(500, 'Major parameter must be CS or SWE');
     } else {
       readDatabase(db).then((names) => {
         const students = names[major];
