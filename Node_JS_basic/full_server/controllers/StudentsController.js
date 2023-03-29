@@ -19,7 +19,7 @@ class StudentsController {
       response.send(500, 'Cannot load the database');
     } else {
       readDatabase(db).then((names) => {
-        const students = names[major + '\r'];
+        const students = names[major];
         response.send(200, `List: ${students.join(', ')}`);
       }).catch(() => response.send(500, 'Cannot load the database'));
     }
