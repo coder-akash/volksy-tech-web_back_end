@@ -1,7 +1,7 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-  static getAllStudents (request, response, db) {
+  static getAllStudents(request, response, db) {
     readDatabase(db).then((names) => {
       const res = ['This is the list of our students'];
 
@@ -13,7 +13,7 @@ class StudentsController {
     }).catch(() => response.send(500, 'Cannot load the database'));
   }
 
-  static getAllStudentsByMajor (request, response, db) {
+  static getAllStudentsByMajor(request, response, db) {
     const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
       response.send(500, 'Major parameter must be CS or SWE');
